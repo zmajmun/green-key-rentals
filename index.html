@@ -151,14 +151,14 @@ p{margin:0;}
 .plat-item svg.tick{width:24px;height:24px;}
 
 /* ================= QUICK CARS STRIP ================= */
-.strip{background:#fff;padding:0;}
-.strip-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;transform:translateY(-38px);}
+.strip{background:var(--light-200);padding:44px 0 20px;}
+.strip-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .strip-card{background:#fff;border:1px solid var(--light-300);border-radius:16px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow-soft);}
 .strip-card .sc-name{font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--ink-900);}
 .strip-card .sc-meta{font-size:12px;color:var(--ink-500);margin-top:3px;}
 .strip-card .sc-price{font-family:var(--font-head);font-weight:800;font-size:20px;color:var(--green-600);display:flex;align-items:center;gap:8px;}
 .strip-card .sc-price small{display:block;font-size:11px;color:var(--ink-500);font-weight:500;text-align:right;}
-.strip-see{text-align:center;transform:translateY(-26px);}
+.strip-see{text-align:center;padding:14px 0 4px;}
 .strip-see a{color:var(--green-600);font-family:var(--font-head);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:7px;}
 
 /* ================= FEATURES (your keys) ================= */
@@ -360,7 +360,6 @@ p{margin:0;}
   .hero-grid{grid-template-columns:1fr;gap:60px;}
   .hero-visual{max-width:540px;margin:0 auto;width:100%;}
   .feat-grid,.veh-grid,.stat-grid,.steps-grid,.cov-cards,.strip-inner{grid-template-columns:1fr;}
-  .strip-inner{transform:none;margin-top:-38px;}
   .dquote-grid{grid-template-columns:1fr;}
   .foot-grid{grid-template-columns:1fr;}
 }
@@ -381,8 +380,28 @@ p{margin:0;}
   .final-box{padding:48px 24px;}
   .activate-box{max-width:100%;}
   .start-box{max-width:100%;}
+  /* Platforms — 2 per row on mobile */
+  .platforms{padding:56px 0;}
+  .platforms .wrap{padding:0 24px;}
+  .plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;max-width:100%;}
+  .plat-item{justify-content:center;font-size:20px;gap:9px;}
+  /* Strip cards — single column, no overlap */
+  .strip{padding:32px 0 16px;}
+  .strip .wrap{padding:0 20px;}
 }
 
+
+/* ---- review cards ---- */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.rev-card{background:#fff;border:1px solid var(--light-300);border-radius:20px;padding:30px 26px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-soft);}
+.rev-stars{display:flex;gap:4px;}
+.rev-stars svg{width:17px;height:17px;color:var(--green-500);}
+.rev-text{font-size:15px;color:var(--ink-700);line-height:1.65;flex:1;margin:0;}
+.rev-who{display:flex;align-items:center;gap:12px;}
+.rev-av{width:40px;height:40px;border-radius:50%;background:rgba(22,193,114,.1);border:1.5px solid rgba(47,213,135,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rev-name{font-family:var(--font-head);font-weight:700;font-size:14px;color:var(--ink-900);}
+.rev-loc{font-size:12px;color:var(--ink-500);margin-top:2px;}
+@media(max-width:760px){.rev-grid{grid-template-columns:1fr;}}
 
 /* ---- coming-soon card overrides ---- */
 .veh-coming {
@@ -667,34 +686,58 @@ p{margin:0;}
         <p class="desc">Rates from $359 per week. No long contracts. No hidden fees. What's left is yours.</p>
       </div>
     </div>
-    <div class="accordion-row">
-      <div class="acc">
-        <button class="acc-q">How we estimate this range
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-        </button>
-        <div class="acc-a"><p>Estimates are based on driver-reported earnings across rideshare and delivery platforms during peak hours, minus your weekly rental cost. Actual earnings vary by hours worked, market demand, and platform. We don't guarantee income — we give you a fuel-efficient car and the freedom to keep what you make.</p></div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ============ SINGLE TESTIMONIAL ============ -->
-<section class="lightsec section" style="padding:64px 0;">
+<!-- ============ HAPPY CUSTOMERS ============ -->
+<section class="lightsec section" id="reviews">
   <div class="wrap">
-    <div class="quote-card">
-      <span class="qmark">&ldquo;</span>
-      <div class="quote-top">
-        <div class="qav"><div style="width:54px;height:54px;border-radius:50%;background:rgba(22,193,114,.12);display:flex;align-items:center;justify-content:center;border:2px solid rgba(47,213,135,.3);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(47,213,135,.6)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
-        <div class="quote-body">
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          </div>
-          <p>Green Key made it simple. I got a clean hybrid in a few hours, started driving Uber and Lyft the same week, and my weekly rent is covered with a few good days. The rest is mine.</p>
-          <div class="who"><b>Ricardo G.</b> · Eastside</div>
+    <div class="sec-head">
+      <span class="eyebrow">Happy customers</span>
+      <h2 style="margin-top:14px;">What our drivers say</h2>
+      <p>Real drivers. Real earnings. Real flexibility.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+        </div>
+        <p class="rev-text">"My first week I made $920 driving Friday and Saturday. Green Key's rental cost me $359. The rest was mine. Best decision I made this year."</p>
+        <div class="rev-who">
+          <div class="rev-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(22,193,114,.6)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div><div class="rev-name">Javier T.</div><div class="rev-loc">Northside, Chicago</div></div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+        </div>
+        <p class="rev-text">"I started on a Tuesday and by Friday I was already cashing $480. No boss, no shifts. I decide when I turn on the app. Green Key made it happen same day."</p>
+        <div class="rev-who">
+          <div class="rev-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(22,193,114,.6)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div><div class="rev-name">Lucia G.</div><div class="rev-loc">Lakeview, Chicago</div></div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
+        </div>
+        <p class="rev-text">"Green Key made it simple. I got a clean hybrid in a few hours, started driving Uber and Lyft the same week. My weekly rent is covered with just a couple good days."</p>
+        <div class="rev-who">
+          <div class="rev-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(22,193,114,.6)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div><div class="rev-name">Ricardo G.</div><div class="rev-loc">Eastside, Chicago</div></div>
         </div>
       </div>
     </div>
@@ -759,57 +802,6 @@ p{margin:0;}
         <span class="t">Activate your car <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span>
       </span>
     </a>
-  </div>
-</section>
-
-<!-- ============ DARK TESTIMONIALS ============ -->
-<section class="darksec section">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Hear what drivers say about<br>earning with <span class="gk-green">Green Key rental</span></h2>
-    </div>
-    <div class="dstat">
-      <div class="ds">
-        <div class="v"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>4.9</div>
-        <div class="l">Average rating</div>
-      </div>
-      <div class="ds">
-        <div class="v">Today</div>
-        <div class="l">Average approval</div>
-      </div>
-    </div>
-    <div class="dquote-grid">
-      <div class="dquote">
-        <div class="stars">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-        </div>
-        <p>"My first week I made $920 driving Friday and Saturday. Green Key's rental cost me $359. The rest was mine."</p>
-        <div class="who"><span class="av"><div style="width:38px;height:38px;border-radius:50%;background:rgba(22,193,114,.1);display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(22,193,114,.5)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></span><span><span class="n">Javier T.</span><br><span class="c">Northside</span></span></div>
-      </div>
-      <div class="dquote">
-        <div class="stars">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.6 6.6L22 9.2l-5 4.7L18.5 21 12 17.3 5.5 21 7 13.9l-5-4.7 7.4-.6z"/></svg>
-        </div>
-        <p>"I started on a Tuesday and by Friday I was already cashing $480. No boss, no shifts. I decide when I turn on the app."</p>
-        <div class="who"><span class="av"><div style="width:38px;height:38px;border-radius:50%;background:rgba(22,193,114,.1);display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(22,193,114,.5)" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></span><span><span class="n">Lucia G.</span><br><span class="c">Lakeview</span></span></div>
-      </div>
-    </div>
-    <div class="dmini">
-      <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg></div>
-      <h3>Ready to drive now?</h3>
-      <div class="row">
-        <p>Every day you wait is a day without income. Vehicles are limited. Approval and pickup today.</p>
-        <a href="#start" class="btn btn-green">Get earning now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
-      </div>
-    </div>
   </div>
 </section>
 
