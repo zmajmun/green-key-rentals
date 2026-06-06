@@ -301,8 +301,10 @@ p{margin:0;}
 .field.full{grid-column:1/-1;}
 .field label{font-size:13px;font-weight:600;color:var(--ink-700);}
 .field label .req{color:var(--green-600);}
-.field input{border:1px solid var(--light-300);border-radius:10px;padding:13px 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);transition:border .15s, box-shadow .15s;background:#fff;}
-.field input:focus{outline:none;border-color:var(--green-500);box-shadow:0 0 0 3px rgba(22,193,114,.16);}
+.field input,.field select{border:1px solid var(--light-300);border-radius:10px;padding:13px 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);transition:border .15s, box-shadow .15s;background:#fff;width:100%;}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364768c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
+.field select option[value=""]{color:var(--ink-500);}
+.field input:focus,.field select:focus{outline:none;border-color:var(--green-500);box-shadow:0 0 0 3px rgba(22,193,114,.16);}
 .field .hint{font-size:11px;color:var(--ink-500);}
 .form-card .btn{width:100%;justify-content:center;margin-top:8px;}
 .form-secure{margin-top:14px;background:linear-gradient(90deg,rgba(22,193,114,.1),rgba(22,193,114,.03));border-radius:10px;padding:11px;text-align:center;font-size:12px;color:var(--ink-700);display:flex;align-items:center;justify-content:center;gap:8px;}
@@ -923,6 +925,17 @@ p{margin:0;}
       <div class="form-row">
         <div class="field"><label>ZIP code <span class="req">*</span></label><input type="text" name="zip" placeholder="60601" required></div>
         <div class="field"><label>Age (minimum 25 years) <span class="req">*</span></label><input type="number" name="age" placeholder="25" required><span class="hint">Must be at least 25</span></div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label>Which vehicle are you interested in? <span class="req">*</span></label>
+          <select name="vehicle" required>
+            <option value="" disabled selected>Select a vehicle…</option>
+            <option value="camry-hybrid-xle">Toyota Camry Hybrid XLE — $54/day · $359/wk (Available Now)</option>
+            <option value="avalon-hybrid">Toyota Avalon Hybrid (Coming Soon — join waitlist)</option>
+            <option value="sienna-hybrid">Toyota Sienna Hybrid (Coming Soon — join waitlist)</option>
+          </select>
+        </div>
       </div>
       <button type="submit" class="btn btn-green btn-lg">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
       <div class="form-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Your form is encrypted and your information is protected.</div>
