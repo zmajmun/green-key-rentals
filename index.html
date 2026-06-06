@@ -365,6 +365,8 @@ p{margin:0;}
   .foot-grid{grid-template-columns:1fr;}
 }
 @media (max-width:760px){
+  html,body{overflow-x:hidden;}
+  .wrap{padding:0 20px;}
   .section{padding:64px 0;}
   .nav-links,.nav-phone{display:none;}
   .nav-toggle{display:grid;}
@@ -372,6 +374,12 @@ p{margin:0;}
   .dstat{grid-template-columns:1fr;}
   .dstat .ds:first-child{border-right:0;border-bottom:1px solid var(--navy-500);}
   .cta-banner{flex-direction:column;align-items:flex-start;}
+  .hero-grid{padding:48px 0 64px;}
+  .hero h1{font-size:clamp(36px,10vw,52px);}
+  .hero-sub{font-size:16px;max-width:100%;}
+  .final-box{padding:48px 24px;}
+  .activate-box{max-width:100%;}
+  .start-box{max-width:100%;}
 }
 
 
