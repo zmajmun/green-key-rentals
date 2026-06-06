@@ -28,7 +28,7 @@
   --dim-300:#aebed2;
   --dim-500:#7488a3;
   --radius-lg:22px;
-  --maxw:720px;
+  --maxw:660px;
   --shadow-card:0 18px 40px -18px rgba(8,19,38,.28);
   --shadow-soft:0 10px 30px -12px rgba(8,19,38,.18);
   --font-head:'Plus Jakarta Sans',system-ui,sans-serif;
@@ -37,14 +37,7 @@
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{
-  margin:0;
-  font-family:var(--font-body);
-  background:var(--light-200);
-  color:var(--ink-700);
-  -webkit-font-smoothing:antialiased;
-  line-height:1.5;
-}
+body{margin:0;font-family:var(--font-body);background:var(--light-200);color:var(--ink-700);-webkit-font-smoothing:antialiased;line-height:1.5;}
 img{display:block;max-width:100%;}
 a{color:inherit;text-decoration:none;}
 h1,h2,h3,h4{font-family:var(--font-head);margin:0;line-height:1.04;letter-spacing:-.02em;font-weight:800;}
@@ -63,19 +56,19 @@ p{margin:0;}
 .nav-back:hover{color:#fff;}
 .nav-back svg{width:16px;height:16px;}
 
-/* HERO HEADER */
+/* PAGE HEADER */
 .app-header{background:linear-gradient(135deg,var(--navy-800),var(--navy-700));padding:52px 28px 44px;text-align:center;}
 .app-header-inner{max-width:var(--maxw);margin:0 auto;}
 .app-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(22,193,114,.14);border:1px solid rgba(22,193,114,.3);border-radius:999px;padding:8px 16px;font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:.06em;color:#2fd587;text-transform:uppercase;margin-bottom:20px;}
 .app-eyebrow span{width:8px;height:8px;border-radius:50%;background:var(--green-500);display:inline-block;}
-.app-header h1{font-size:clamp(28px,4vw,40px);color:#fff;margin-bottom:12px;}
-.app-header p{font-size:16px;color:var(--dim-300);max-width:480px;margin:0 auto;}
+.app-header h1{font-size:clamp(26px,4vw,38px);color:#fff;margin-bottom:12px;}
+.app-header p{font-size:16px;color:var(--dim-300);max-width:460px;margin:0 auto;}
 
-/* FORM WRAPPER */
+/* FORM BODY */
 .app-body{max-width:var(--maxw);margin:0 auto;padding:40px 28px 80px;}
 
 /* STEP PROGRESS */
-.step-progress{display:flex;align-items:center;gap:0;margin-bottom:36px;background:#fff;border-radius:14px;padding:18px 24px;box-shadow:var(--shadow-soft);}
+.step-progress{display:flex;align-items:center;margin-bottom:32px;background:#fff;border-radius:14px;padding:18px 24px;box-shadow:var(--shadow-soft);}
 .step-dot{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;}
 .step-dot::after{content:"";position:absolute;top:14px;left:calc(50% + 16px);width:calc(100% - 32px);height:2px;background:var(--light-300);}
 .step-dot:last-child::after{display:none;}
@@ -101,26 +94,15 @@ p{margin:0;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
 .field{display:flex;flex-direction:column;gap:7px;}
 .field.full{grid-column:1/-1;}
-.field.third{grid-column:span 1;}
 .field label{font-size:13px;font-weight:600;color:var(--ink-700);}
 .field label .req{color:var(--green-600);}
-.field input,.field select,.field textarea{border:1px solid var(--light-300);border-radius:10px;padding:13px 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);transition:border .15s,box-shadow .15s;background:#fff;width:100%;}
+.field input,.field select{border:1px solid var(--light-300);border-radius:10px;padding:13px 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);transition:border .15s,box-shadow .15s;background:#fff;width:100%;}
 .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364768c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green-500);box-shadow:0 0 0 3px rgba(22,193,114,.16);}
-.field input.error,.field select.error{border-color:#e5484d;box-shadow:0 0 0 3px rgba(229,72,77,.14);}
+.field input:focus,.field select:focus{outline:none;border-color:var(--green-500);box-shadow:0 0 0 3px rgba(22,193,114,.16);}
 .field .hint{font-size:11px;color:var(--ink-500);}
 .field .field-error{font-size:12px;color:#e5484d;font-weight:600;display:none;}
 .field.has-error .field-error{display:block;}
 .field.has-error input,.field.has-error select{border-color:#e5484d;box-shadow:0 0 0 3px rgba(229,72,77,.14);}
-
-/* RADIO GROUP */
-.radio-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:2px;}
-.radio-opt{display:flex;align-items:center;gap:9px;background:var(--light-200);border:1.5px solid var(--light-300);border-radius:10px;padding:11px 16px;cursor:pointer;font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--ink-700);transition:border .15s,background .15s;}
-.radio-opt input[type=radio]{display:none;}
-.radio-opt.selected{background:rgba(22,193,114,.08);border-color:var(--green-500);color:var(--green-600);}
-.radio-check{width:18px;height:18px;border-radius:50%;border:2px solid var(--light-300);display:grid;place-items:center;flex-shrink:0;transition:border .15s,background .15s;}
-.radio-opt.selected .radio-check{border-color:var(--green-500);background:var(--green-500);}
-.radio-opt.selected .radio-check::after{content:"";width:7px;height:7px;border-radius:50%;background:#fff;}
 
 /* YES/NO TOGGLE */
 .yn-group{display:flex;gap:10px;}
@@ -140,7 +122,7 @@ p{margin:0;}
 .check-item .check-text b{color:var(--ink-900);}
 .check-item.required-check.error .check-box{border-color:#e5484d;box-shadow:0 0 0 3px rgba(229,72,77,.14);}
 
-/* NAVIGATION BUTTONS */
+/* NAV BUTTONS */
 .form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:14px;}
 .form-nav .btn-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-weight:700;font-size:15px;color:var(--ink-500);background:none;border:none;cursor:pointer;padding:14px 0;}
 .form-nav .btn-back:hover{color:var(--ink-900);}
@@ -149,19 +131,30 @@ p{margin:0;}
 .btn svg{width:17px;height:17px;}
 .btn-green{background:var(--green-500);color:#fff;box-shadow:0 12px 26px -10px var(--green-glow);}
 .btn-green:hover{background:var(--green-400);transform:translateY(-2px);}
+.btn-green:disabled{opacity:.6;pointer-events:none;}
 .btn-lg{padding:18px 34px;font-size:17px;}
 .btn-full{width:100%;justify-content:center;}
 
+/* PAYMENT CARD */
+.pay-card{background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border-radius:18px;padding:28px 24px;margin-bottom:24px;display:flex;align-items:center;gap:20px;}
+.pay-icon{width:52px;height:52px;border-radius:14px;background:rgba(22,193,114,.15);border:1px solid rgba(22,193,114,.25);display:grid;place-items:center;flex-shrink:0;}
+.pay-icon svg{width:24px;height:24px;color:var(--green-400);}
+.pay-details h3{font-size:17px;color:#fff;margin-bottom:4px;}
+.pay-details p{font-size:13px;color:var(--dim-300);line-height:1.55;}
+.pay-amount{margin-left:auto;text-align:right;flex-shrink:0;}
+.pay-amount .amt{font-family:var(--font-head);font-weight:800;font-size:28px;color:#fff;line-height:1;}
+.pay-amount .lbl{font-size:11px;color:var(--dim-300);margin-top:2px;}
+
 /* SECURE BADGE */
-.form-secure{margin-top:16px;background:linear-gradient(90deg,rgba(22,193,114,.1),rgba(22,193,114,.03));border-radius:10px;padding:11px;text-align:center;font-size:12px;color:var(--ink-700);display:flex;align-items:center;justify-content:center;gap:8px;}
+.form-secure{margin-top:16px;background:rgba(22,193,114,.07);border-radius:10px;padding:11px;text-align:center;font-size:12px;color:var(--ink-700);display:flex;align-items:center;justify-content:center;gap:8px;}
 .form-secure svg{width:13px;height:13px;color:var(--green-600);}
 .form-fine{margin-top:12px;font-size:11px;color:var(--ink-500);text-align:center;line-height:1.6;}
 
-/* HIDDEN STEPS */
+/* STEP PANES */
 .step-pane{display:none;}
 .step-pane.active{display:block;}
 
-/* SUCCESS STATE */
+/* SUCCESS */
 .success-card{background:#fff;border-radius:22px;padding:56px 40px;text-align:center;box-shadow:0 20px 50px -20px rgba(8,19,38,.18);border:1px solid var(--light-300);}
 .success-icon{width:72px;height:72px;border-radius:50%;background:rgba(22,193,114,.12);border:2px solid rgba(47,213,135,.3);display:grid;place-items:center;margin:0 auto 24px;}
 .success-icon svg{width:34px;height:34px;color:var(--green-500);}
@@ -179,10 +172,10 @@ p{margin:0;}
   .app-body{padding:28px 16px 60px;}
   .form-card{padding:24px 20px;}
   .form-row{grid-template-columns:1fr;}
-  .field.third{grid-column:1/-1;}
   .step-label{display:none;}
   .step-progress{padding:14px 16px;}
-  .form-nav .btn-back{font-size:14px;}
+  .pay-card{flex-wrap:wrap;}
+  .pay-amount{margin-left:0;text-align:left;}
 }
 </style>
 </head>
@@ -211,8 +204,8 @@ p{margin:0;}
 <div class="app-header">
   <div class="app-header-inner">
     <div class="app-eyebrow"><span></span>Driver application</div>
-    <h1>Apply to rent &amp; start driving</h1>
-    <p>Takes under 3 minutes. Same-day approvals. Drive Uber, Lyft, or DoorDash today.</p>
+    <h1>Apply to drive with Green Key Rental</h1>
+    <p>3 quick steps. Same-day approvals. Start driving today.</p>
   </div>
 </div>
 
@@ -223,7 +216,7 @@ p{margin:0;}
   <div class="step-progress" id="stepProgress">
     <div class="step-dot active" data-step="1">
       <div class="step-circle"><span>1</span></div>
-      <div class="step-label">Identity</div>
+      <div class="step-label">About You</div>
     </div>
     <div class="step-dot" data-step="2">
       <div class="step-circle"><span>2</span></div>
@@ -231,21 +224,13 @@ p{margin:0;}
     </div>
     <div class="step-dot" data-step="3">
       <div class="step-circle"><span>3</span></div>
-      <div class="step-label">Platform</div>
-    </div>
-    <div class="step-dot" data-step="4">
-      <div class="step-circle"><span>4</span></div>
-      <div class="step-label">Insurance</div>
-    </div>
-    <div class="step-dot" data-step="5">
-      <div class="step-circle"><span>5</span></div>
-      <div class="step-label">Confirm</div>
+      <div class="step-label">Background Check</div>
     </div>
   </div>
 
   <form id="appForm" novalidate>
 
-    <!-- ===== STEP 1: DRIVER IDENTITY ===== -->
+    <!-- ===== STEP 1: ABOUT YOU ===== -->
     <div class="step-pane active" id="step1">
       <div class="form-card">
         <div class="form-section-title">
@@ -253,20 +238,20 @@ p{margin:0;}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
           </div>
           <div>
-            <h2>Driver identity</h2>
-            <p>Your basic personal information</p>
+            <h2>About you</h2>
+            <p>Takes about 60 seconds</p>
           </div>
         </div>
 
         <div class="form-row">
           <div class="field" id="f-first">
             <label>First name <span class="req">*</span></label>
-            <input type="text" name="first_name" placeholder="Jordan" required autocomplete="given-name">
+            <input type="text" name="first_name" placeholder="Jordan" autocomplete="given-name">
             <span class="field-error">First name is required</span>
           </div>
           <div class="field" id="f-last">
             <label>Last name <span class="req">*</span></label>
-            <input type="text" name="last_name" placeholder="Rivera" required autocomplete="family-name">
+            <input type="text" name="last_name" placeholder="Rivera" autocomplete="family-name">
             <span class="field-error">Last name is required</span>
           </div>
         </div>
@@ -274,13 +259,13 @@ p{margin:0;}
         <div class="form-row">
           <div class="field" id="f-dob">
             <label>Date of birth <span class="req">*</span></label>
-            <input type="date" name="dob" required>
+            <input type="date" name="dob">
             <span class="hint">Must be 21 or older</span>
             <span class="field-error">Must be 21 or older to apply</span>
           </div>
           <div class="field" id="f-phone">
-            <label>Phone (US) <span class="req">*</span></label>
-            <input type="tel" name="phone" placeholder="(312) 555-0100" required autocomplete="tel">
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="(312) 555-0100" autocomplete="tel">
             <span class="field-error">Valid phone number required</span>
           </div>
         </div>
@@ -288,16 +273,8 @@ p{margin:0;}
         <div class="form-row">
           <div class="field full" id="f-email">
             <label>Email address <span class="req">*</span></label>
-            <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email">
             <span class="field-error">Valid email address required</span>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field full" id="f-address">
-            <label>Home address <span class="req">*</span></label>
-            <input type="text" name="address" placeholder="123 Main St, Chicago, IL 60601" required autocomplete="street-address">
-            <span class="field-error">Home address is required</span>
           </div>
         </div>
 
@@ -320,19 +297,19 @@ p{margin:0;}
           </div>
           <div>
             <h2>Driver's license</h2>
-            <p>License must be valid and unexpired</p>
+            <p>Must be valid and unexpired</p>
           </div>
         </div>
 
         <div class="form-row">
           <div class="field" id="f-dl-number">
             <label>License number <span class="req">*</span></label>
-            <input type="text" name="dl_number" placeholder="S123-4567-8901" required>
+            <input type="text" name="dl_number" placeholder="S123-4567-8901">
             <span class="field-error">License number is required</span>
           </div>
           <div class="field" id="f-dl-state">
             <label>Issuing state <span class="req">*</span></label>
-            <select name="dl_state" required>
+            <select name="dl_state">
               <option value="" disabled selected>Select state…</option>
               <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
               <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
@@ -355,26 +332,25 @@ p{margin:0;}
         <div class="form-row">
           <div class="field" id="f-dl-exp">
             <label>Expiration date <span class="req">*</span></label>
-            <input type="date" name="dl_expiration" required>
+            <input type="date" name="dl_expiration">
             <span class="hint">Must not be expired</span>
             <span class="field-error">License must not be expired</span>
           </div>
+          <span></span>
         </div>
 
         <div class="form-row">
           <div class="field full" id="f-dui">
-            <label>Any DUI, DWI, or OWI convictions in the past 7 years? <span class="req">*</span></label>
+            <label>Any DUI, DWI, or OWI in the past 7 years? <span class="req">*</span></label>
             <div class="yn-group" id="dui-group">
               <label class="yn-opt" onclick="selectYN('dui','yes',this)">
-                <input type="radio" name="dui_history" value="yes" required>
-                Yes
+                <input type="radio" name="dui_history" value="yes">Yes
               </label>
               <label class="yn-opt" onclick="selectYN('dui','no',this)">
-                <input type="radio" name="dui_history" value="no">
-                No
+                <input type="radio" name="dui_history" value="no">No
               </label>
             </div>
-            <span class="field-error" id="dui-error">Please select an option</span>
+            <span class="field-error" id="dui-error" style="display:none;">Please select an option</span>
           </div>
         </div>
 
@@ -383,15 +359,13 @@ p{margin:0;}
             <label>Any major moving violations in the past 3 years? <span class="req">*</span></label>
             <div class="yn-group" id="violations-group">
               <label class="yn-opt" onclick="selectYN('violations','yes',this)">
-                <input type="radio" name="major_violations" value="yes" required>
-                Yes
+                <input type="radio" name="major_violations" value="yes">Yes
               </label>
               <label class="yn-opt" onclick="selectYN('violations','no',this)">
-                <input type="radio" name="major_violations" value="no">
-                No
+                <input type="radio" name="major_violations" value="no">No
               </label>
             </div>
-            <span class="field-error" id="violations-error">Please select an option</span>
+            <span class="field-error" id="violations-error" style="display:none;">Please select an option</span>
           </div>
         </div>
 
@@ -401,205 +375,69 @@ p{margin:0;}
             Back
           </button>
           <button type="button" class="btn btn-green btn-lg" onclick="nextStep(2)">
-            Next: Platform info
+            Next: Background check
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- ===== STEP 3: RIDESHARE PLATFORM ===== -->
+    <!-- ===== STEP 3: BACKGROUND CHECK ===== -->
     <div class="step-pane" id="step3">
-      <div class="form-card">
-        <div class="form-section-title">
-          <div class="form-section-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h12V6H3z"/><path d="M15 9h3l3 3v4h-6"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-          </div>
-          <div>
-            <h2>Rideshare platform</h2>
-            <p>Tell us how you plan to use the vehicle</p>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field full" id="f-platform">
-            <label>Primary platform <span class="req">*</span></label>
-            <div class="radio-group" id="platform-group">
-              <label class="radio-opt" onclick="selectRadio('platform','uber',this)">
-                <input type="radio" name="primary_platform" value="uber">
-                <span class="radio-check"></span>Uber
-              </label>
-              <label class="radio-opt" onclick="selectRadio('platform','lyft',this)">
-                <input type="radio" name="primary_platform" value="lyft">
-                <span class="radio-check"></span>Lyft
-              </label>
-              <label class="radio-opt" onclick="selectRadio('platform','both',this)">
-                <input type="radio" name="primary_platform" value="both">
-                <span class="radio-check"></span>Uber &amp; Lyft
-              </label>
-              <label class="radio-opt" onclick="selectRadio('platform','doordash',this)">
-                <input type="radio" name="primary_platform" value="doordash">
-                <span class="radio-check"></span>DoorDash
-              </label>
-              <label class="radio-opt" onclick="selectRadio('platform','other',this)">
-                <input type="radio" name="primary_platform" value="other">
-                <span class="radio-check"></span>Other
-              </label>
-            </div>
-            <span class="field-error" id="platform-error">Please select a platform</span>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field full" id="f-acct-status">
-            <label>Driver account status <span class="req">*</span></label>
-            <select name="account_status" required>
-              <option value="" disabled selected>Select status…</option>
-              <option value="active">Active — I currently drive</option>
-              <option value="approved-not-driving">Approved — not currently driving</option>
-              <option value="applying">Applying — not yet approved</option>
-              <option value="none">I don't have an account yet</option>
-            </select>
-            <span class="field-error">Account status is required</span>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field full">
-            <label>Platform driver ID <span style="color:var(--ink-500);font-weight:500;">(optional)</span></label>
-            <input type="text" name="platform_driver_id" placeholder="e.g. uber-abc123">
-            <span class="hint">If you already have a driver account</span>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field full" id="f-vehicle">
-            <label>Which vehicle are you interested in? <span class="req">*</span></label>
-            <select name="vehicle" required>
-              <option value="" disabled selected>Select a vehicle…</option>
-              <option value="camry-hybrid-xle">Toyota Camry Hybrid XLE — $79/day · $465/wk (Available Now)</option>
-              <option value="avalon-hybrid">Toyota Avalon Hybrid (Coming Soon — join waitlist)</option>
-              <option value="sienna-hybrid">Toyota Sienna Hybrid (Coming Soon — join waitlist)</option>
-            </select>
-            <span class="field-error">Please select a vehicle</span>
-          </div>
-        </div>
-
-        <div class="form-nav">
-          <button type="button" class="btn-back" onclick="prevStep(3)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg>
-            Back
-          </button>
-          <button type="button" class="btn btn-green btn-lg" onclick="nextStep(3)">
-            Next: Insurance
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== STEP 4: PERSONAL INSURANCE ===== -->
-    <div class="step-pane" id="step4">
       <div class="form-card">
         <div class="form-section-title">
           <div class="form-section-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
           </div>
           <div>
-            <h2>Personal insurance</h2>
-            <p>Your current auto insurance policy</p>
+            <h2>Background check</h2>
+            <p>One-time fee — required for all drivers</p>
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="field full" id="f-ins-company">
-            <label>Insurance company <span class="req">*</span></label>
-            <input type="text" name="insurance_company" placeholder="e.g. State Farm, Geico, Progressive" required>
-            <span class="field-error">Insurance company is required</span>
+        <!-- Payment summary card -->
+        <div class="pay-card">
+          <div class="pay-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="pay-details">
+            <h3>Driver background check</h3>
+            <p>Criminal history · MVR (driving record) · Identity verification. Results sent directly to Green Key Rental.</p>
+          </div>
+          <div class="pay-amount">
+            <div class="amt">$30</div>
+            <div class="lbl">one time</div>
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="field" id="f-ins-policy">
-            <label>Policy number <span class="req">*</span></label>
-            <input type="text" name="insurance_policy" placeholder="e.g. POL-123456" required>
-            <span class="field-error">Policy number is required</span>
-          </div>
-          <div class="field" id="f-ins-exp">
-            <label>Policy expiration <span class="req">*</span></label>
-            <input type="date" name="insurance_expiration" required>
-            <span class="hint">Must not be expired</span>
-            <span class="field-error">Policy must not be expired</span>
-          </div>
-        </div>
-
-        <div class="form-nav">
-          <button type="button" class="btn-back" onclick="prevStep(4)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg>
-            Back
-          </button>
-          <button type="button" class="btn btn-green btn-lg" onclick="nextStep(4)">
-            Next: Confirm &amp; submit
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== STEP 5: ACKNOWLEDGMENTS ===== -->
-    <div class="step-pane" id="step5">
-      <div class="form-card">
-        <div class="form-section-title">
-          <div class="form-section-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          </div>
-          <div>
-            <h2>Acknowledgments</h2>
-            <p>Please read and confirm each item</p>
-          </div>
-        </div>
-
-        <div class="check-group">
-          <label class="check-item required-check" id="ack-mvr" onclick="toggleCheck(this)">
-            <input type="checkbox" name="ack_mvr" required>
+        <!-- Consent -->
+        <div class="check-group" style="margin-bottom:28px;">
+          <label class="check-item required-check" id="ack-bgc" onclick="toggleCheck(this)">
+            <input type="checkbox" name="ack_bgc">
             <span class="check-box"></span>
-            <span class="check-text"><b>MVR check consent</b> — I authorize Green Key Rental to obtain a Motor Vehicle Report (MVR) on my driving record as part of the application process.</span>
+            <span class="check-text"><b>I authorize a background check</b> — I consent to Green Key Rental obtaining a background check and motor vehicle report (MVR) on my record as part of the application process.</span>
           </label>
-
-          <label class="check-item required-check" id="ack-tnc" onclick="toggleCheck(this)">
-            <input type="checkbox" name="ack_tnc" required>
-            <span class="check-box"></span>
-            <span class="check-text"><b>TNC approval confirmation</b> — I confirm that I hold or am in the process of obtaining approval to drive for a Transportation Network Company (TNC) such as Uber or Lyft.</span>
-          </label>
-
-          <label class="check-item required-check" id="ack-rental" onclick="toggleCheck(this)">
-            <input type="checkbox" name="ack_rental" required>
-            <span class="check-box"></span>
-            <span class="check-text"><b>Rental agreement acceptance</b> — I understand that upon approval I will be required to sign a rental agreement and pay a refundable security deposit before taking possession of a vehicle.</span>
-          </label>
-
-          <label class="check-item" id="ack-contact" onclick="toggleCheck(this)">
+          <label class="check-item required-check" id="ack-contact" onclick="toggleCheck(this)">
             <input type="checkbox" name="ack_contact">
             <span class="check-box"></span>
-            <span class="check-text">I consent to be contacted by call or SMS regarding my application and rental status.</span>
+            <span class="check-text"><b>I agree to be contacted</b> — Green Key Rental may reach out by call or SMS about my application and vehicle availability.</span>
           </label>
         </div>
 
-        <div style="height:24px;"></div>
-
+        <!-- Submit & pay button -->
         <button type="submit" class="btn btn-green btn-lg btn-full" id="submitBtn">
-          Submit application
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          Submit &amp; Pay $30 background check fee
         </button>
 
         <div class="form-secure">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
-          Your information is encrypted and never sold or shared.
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Secure payment powered by Stripe. Your card info is never stored by us.
         </div>
-        <p class="form-fine">By submitting, you agree that Green Key Rental may contact you by call or SMS regarding your application. Submitting this form does not guarantee vehicle availability or approval.</p>
+        <p class="form-fine">Submitting does not guarantee approval. Your application will be reviewed by Green Key Rental and you'll receive a decision by call or text — usually within a few hours.</p>
 
         <div class="form-nav" style="margin-top:16px;">
-          <button type="button" class="btn-back" onclick="prevStep(5)">
+          <button type="button" class="btn-back" onclick="prevStep(3)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg>
             Back
           </button>
@@ -614,20 +452,24 @@ p{margin:0;}
         <div class="success-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
         </div>
-        <h2>Application received!</h2>
-        <p>Thanks for applying with Green Key Rental. We'll review your info and reach out within a few hours — often same day.</p>
+        <h2>You're on your way! 🎉</h2>
+        <p>Your application is in and your background check is processing. We'll review everything and reach out shortly — usually within a few hours.</p>
         <div class="success-next">
           <h3>What happens next</h3>
           <div class="success-step">
             <div class="ss-num">1</div>
-            <p>We review your application and run an MVR check</p>
+            <p>Background check processes (typically same day)</p>
           </div>
           <div class="success-step">
             <div class="ss-num">2</div>
-            <p>You'll get a call or text with your approval status</p>
+            <p>We review your application and driving record</p>
           </div>
           <div class="success-step">
             <div class="ss-num">3</div>
+            <p>You get a call or text with your approval status</p>
+          </div>
+          <div class="success-step">
+            <div class="ss-num">4</div>
             <p>Pick up your vehicle and start earning the same day</p>
           </div>
         </div>
@@ -641,9 +483,16 @@ p{margin:0;}
 </div>
 
 <script>
+// ============================================================
+// STRIPE PAYMENT LINK
+// 1. Go to dashboard.stripe.com → Payment Links → Create
+// 2. Set amount to $30, product name "Driver Background Check"
+// 3. Paste the link URL below (looks like https://buy.stripe.com/xxxx)
+// ============================================================
+var STRIPE_PAYMENT_LINK = 'PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE';
 var WEB3FORMS_KEY = '1554ce09-b656-4e07-b7cd-8dade7f9a35d';
 var currentStep = 1;
-var totalSteps = 5;
+var totalSteps = 3;
 
 // ---------- Step navigation ----------
 function showStep(n) {
@@ -653,12 +502,11 @@ function showStep(n) {
   }
   document.getElementById('stepSuccess').classList.remove('active');
   updateProgress(n);
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function updateProgress(n) {
-  var dots = document.querySelectorAll('.step-dot');
-  dots.forEach(function(dot, idx) {
+  document.querySelectorAll('.step-dot').forEach(function(dot, idx) {
     var s = idx + 1;
     dot.classList.remove('active', 'done');
     if (s < n) dot.classList.add('done');
@@ -680,158 +528,88 @@ function prevStep(from) {
 // ---------- Validation ----------
 function validateStep(step) {
   var ok = true;
-
   if (step === 1) {
-    ok = requireField('f-first', 'first_name') && ok;
-    ok = requireField('f-last', 'last_name') && ok;
+    ok = requireField('f-first') && ok;
+    ok = requireField('f-last') && ok;
     ok = validateDOB() && ok;
-    ok = requireField('f-phone', 'phone') && ok;
+    ok = requireField('f-phone') && ok;
     ok = validateEmail() && ok;
-    ok = requireField('f-address', 'address') && ok;
   }
-
   if (step === 2) {
-    ok = requireField('f-dl-number', 'dl_number') && ok;
-    ok = requireSelect('f-dl-state', 'dl_state') && ok;
+    ok = requireField('f-dl-number') && ok;
+    ok = requireSelect('f-dl-state') && ok;
     ok = validateDLExp() && ok;
-    ok = requireRadioYN('dui', 'dui_history', 'dui-error') && ok;
-    ok = requireRadioYN('violations', 'major_violations', 'violations-error') && ok;
+    ok = requireYN('dui', 'dui-error') && ok;
+    ok = requireYN('violations', 'violations-error') && ok;
   }
-
-  if (step === 3) {
-    ok = requireRadioGroup('platform', 'primary_platform', 'platform-error') && ok;
-    ok = requireSelect('f-acct-status', 'account_status') && ok;
-    ok = requireSelect('f-vehicle', 'vehicle') && ok;
-  }
-
-  if (step === 4) {
-    ok = requireField('f-ins-company', 'insurance_company') && ok;
-    ok = requireField('f-ins-policy', 'insurance_policy') && ok;
-    ok = validateInsExp() && ok;
-  }
-
   return ok;
 }
 
-function requireField(wrapperId, name) {
+function requireField(wrapperId) {
   var w = document.getElementById(wrapperId);
-  var inp = w ? w.querySelector('input,textarea') : null;
+  var inp = w && w.querySelector('input');
   if (!inp) return true;
-  var val = inp.value.trim();
-  if (!val) {
-    w.classList.add('has-error');
-    inp.classList.add('error');
-    return false;
+  if (!inp.value.trim()) {
+    w.classList.add('has-error'); inp.classList.add('error'); return false;
   }
-  w.classList.remove('has-error');
-  inp.classList.remove('error');
-  return true;
+  w.classList.remove('has-error'); inp.classList.remove('error'); return true;
 }
 
-function requireSelect(wrapperId, name) {
+function requireSelect(wrapperId) {
   var w = document.getElementById(wrapperId);
-  var sel = w ? w.querySelector('select') : null;
+  var sel = w && w.querySelector('select');
   if (!sel) return true;
   if (!sel.value) {
-    w.classList.add('has-error');
-    sel.classList.add('error');
-    return false;
+    w.classList.add('has-error'); sel.classList.add('error'); return false;
   }
-  w.classList.remove('has-error');
-  sel.classList.remove('error');
-  return true;
+  w.classList.remove('has-error'); sel.classList.remove('error'); return true;
 }
 
 function validateDOB() {
   var w = document.getElementById('f-dob');
   var inp = w.querySelector('input');
-  var val = inp.value;
-  if (!val) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
-  var dob = new Date(val);
-  var today = new Date();
+  if (!inp.value) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
+  var dob = new Date(inp.value), today = new Date();
   var age = today.getFullYear() - dob.getFullYear();
   var m = today.getMonth() - dob.getMonth();
   if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
   if (age < 21) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
-  w.classList.remove('has-error'); inp.classList.remove('error');
-  return true;
+  w.classList.remove('has-error'); inp.classList.remove('error'); return true;
 }
 
 function validateEmail() {
   var w = document.getElementById('f-email');
   var inp = w.querySelector('input');
-  var val = inp.value.trim();
   var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!val || !re.test(val)) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
-  w.classList.remove('has-error'); inp.classList.remove('error');
-  return true;
+  if (!inp.value.trim() || !re.test(inp.value.trim())) {
+    w.classList.add('has-error'); inp.classList.add('error'); return false;
+  }
+  w.classList.remove('has-error'); inp.classList.remove('error'); return true;
 }
 
 function validateDLExp() {
   var w = document.getElementById('f-dl-exp');
   var inp = w.querySelector('input');
-  var val = inp.value;
-  if (!val) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
-  var exp = new Date(val);
-  var today = new Date();
+  if (!inp.value) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
+  var exp = new Date(inp.value), today = new Date();
   today.setHours(0,0,0,0);
   if (exp < today) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
-  w.classList.remove('has-error'); inp.classList.remove('error');
-  return true;
+  w.classList.remove('has-error'); inp.classList.remove('error'); return true;
 }
 
-function validateInsExp() {
-  var w = document.getElementById('f-ins-exp');
-  var inp = w.querySelector('input');
-  var val = inp.value;
-  if (!val) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
-  var exp = new Date(val);
-  var today = new Date();
-  today.setHours(0,0,0,0);
-  if (exp < today) { w.classList.add('has-error'); inp.classList.add('error'); return false; }
-  w.classList.remove('has-error'); inp.classList.remove('error');
-  return true;
-}
-
-function requireRadioYN(id, name, errorId) {
-  var checked = document.querySelector('input[name="' + name + '"]:checked');
+function requireYN(id, errorId) {
+  var checked = document.querySelector('input[name="' + (id === 'dui' ? 'dui_history' : 'major_violations') + '"]:checked');
   var errEl = document.getElementById(errorId);
-  if (!checked) {
-    if (errEl) { errEl.style.display = 'block'; }
-    return false;
-  }
-  if (errEl) errEl.style.display = 'none';
-  return true;
-}
-
-function requireRadioGroup(id, name, errorId) {
-  var checked = document.querySelector('input[name="' + name + '"]:checked');
-  var errEl = document.getElementById(errorId);
-  if (!checked) {
-    if (errEl) errEl.style.display = 'block';
-    return false;
-  }
-  if (errEl) errEl.style.display = 'none';
-  return true;
+  if (!checked) { if (errEl) errEl.style.display = 'block'; return false; }
+  if (errEl) errEl.style.display = 'none'; return true;
 }
 
 // ---------- Interactive controls ----------
 function selectYN(id, val, el) {
   var group = document.getElementById(id + '-group');
   if (!group) return;
-  group.querySelectorAll('.yn-opt').forEach(function(o) {
-    o.classList.remove('selected-yes', 'selected-no');
-  });
+  group.querySelectorAll('.yn-opt').forEach(function(o) { o.classList.remove('selected-yes','selected-no'); });
   el.classList.add(val === 'yes' ? 'selected-yes' : 'selected-no');
-  var errEl = document.getElementById(id + '-error');
-  if (errEl) errEl.style.display = 'none';
-}
-
-function selectRadio(id, val, el) {
-  var group = document.getElementById(id + '-group');
-  if (!group) return;
-  group.querySelectorAll('.radio-opt').forEach(function(o) { o.classList.remove('selected'); });
-  el.classList.add('selected');
   var errEl = document.getElementById(id + '-error');
   if (errEl) errEl.style.display = 'none';
 }
@@ -843,65 +621,82 @@ function toggleCheck(el) {
   el.classList.remove('error');
 }
 
-// ---------- Form submission ----------
+// ---------- Submission ----------
 document.getElementById('appForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  // Validate required checkboxes
+  // Check required checkboxes
   var requiredChecks = document.querySelectorAll('.required-check');
   var allChecked = true;
   requiredChecks.forEach(function(item) {
-    if (!item.classList.contains('checked')) {
-      item.classList.add('error');
-      allChecked = false;
-    }
+    if (!item.classList.contains('checked')) { item.classList.add('error'); allChecked = false; }
   });
   if (!allChecked) return;
 
   var btn = document.getElementById('submitBtn');
-  btn.textContent = 'Submitting…';
   btn.disabled = true;
+  btn.innerHTML = 'Saving your info…';
 
+  // Collect form values
   var data = new FormData(document.getElementById('appForm'));
+  var lines = [];
+  data.forEach(function(val, key) {
+    lines.push(key.replace(/_/g,' ').replace(/\b\w/g, function(c){ return c.toUpperCase(); }) + ': ' + val);
+  });
+
+  // Submit to Web3Forms first, then redirect to Stripe
   var body = new FormData();
   body.append('access_key', WEB3FORMS_KEY);
   body.append('subject', 'New Driver Application — Green Key Rental');
-  body.append('from_name', 'Green Key Rental Application Form');
-
-  // Collect all form values into a readable message
-  var lines = [];
-  data.forEach(function(val, key) {
-    lines.push(key.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) + ': ' + val);
-  });
+  body.append('from_name', 'Green Key Rental Apply Form');
   body.append('message', lines.join('\n'));
   data.forEach(function(val, key) { body.append(key, val); });
+
+  // Get driver name for Stripe prefill (optional)
+  var fname = (document.querySelector('[name=first_name]') || {}).value || '';
+  var lname = (document.querySelector('[name=last_name]') || {}).value || '';
+  var email = (document.querySelector('[name=email]') || {}).value || '';
 
   fetch('https://api.web3forms.com/submit', { method: 'POST', body: body })
     .then(function(r) { return r.json(); })
     .then(function(res) {
       if (res.success) {
-        // Show success pane
-        for (var i = 1; i <= totalSteps; i++) {
-          var p = document.getElementById('step' + i);
-          if (p) p.classList.remove('active');
+        // Build Stripe URL — pass name + email for prefill if link supports it
+        var stripeUrl = STRIPE_PAYMENT_LINK;
+        if (stripeUrl === 'PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE') {
+          // Dev fallback: skip payment and show success
+          showSuccessState();
+        } else {
+          var params = [];
+          if (email) params.push('prefilled_email=' + encodeURIComponent(email));
+          if (fname || lname) params.push('prefilled_name=' + encodeURIComponent((fname + ' ' + lname).trim()));
+          if (params.length) stripeUrl += (stripeUrl.indexOf('?') > -1 ? '&' : '?') + params.join('&');
+          window.location.href = stripeUrl;
         }
-        document.getElementById('stepProgress').style.display = 'none';
-        document.getElementById('stepSuccess').classList.add('active');
-        window.scrollTo({top: 0, behavior: 'smooth'});
       } else {
-        btn.innerHTML = 'Try again';
         btn.disabled = false;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Submit &amp; Pay $30 background check fee';
         alert('Something went wrong. Please call us at (805) 202-6008.');
       }
     })
     .catch(function() {
-      btn.innerHTML = 'Try again';
       btn.disabled = false;
-      alert('Something went wrong. Please call us at (805) 202-6008.');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Submit &amp; Pay $30 background check fee';
+      alert('Network error. Please call us at (805) 202-6008.');
     });
 });
 
-// Clear errors on input
+function showSuccessState() {
+  for (var i = 1; i <= totalSteps; i++) {
+    var p = document.getElementById('step' + i);
+    if (p) p.classList.remove('active');
+  }
+  document.getElementById('stepProgress').style.display = 'none';
+  document.getElementById('stepSuccess').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Clear errors on input change
 document.querySelectorAll('input,select').forEach(function(el) {
   el.addEventListener('change', function() {
     var w = this.closest('.field');
