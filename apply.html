@@ -412,12 +412,12 @@ p{margin:0;}
 
         <!-- Consent -->
         <div class="check-group" style="margin-bottom:28px;">
-          <label class="check-item required-check" id="ack-bgc" onclick="toggleCheck(this)">
+          <label class="check-item required-check" id="ack-bgc" onclick="toggleCheck(this, event)">
             <input type="checkbox" name="ack_bgc">
             <span class="check-box"></span>
             <span class="check-text"><b>I authorize a background check</b> — I consent to Green Key Rental obtaining a background check and motor vehicle report (MVR) on my record as part of the application process.</span>
           </label>
-          <label class="check-item required-check" id="ack-contact" onclick="toggleCheck(this)">
+          <label class="check-item required-check" id="ack-contact" onclick="toggleCheck(this, event)">
             <input type="checkbox" name="ack_contact">
             <span class="check-box"></span>
             <span class="check-text"><b>I agree to be contacted</b> — Green Key Rental may reach out by call or SMS about my application and vehicle availability.</span>
@@ -614,7 +614,8 @@ function selectYN(id, val, el) {
   if (errEl) errEl.style.display = 'none';
 }
 
-function toggleCheck(el) {
+function toggleCheck(el, e) {
+  if (e) e.preventDefault();
   el.classList.toggle('checked');
   var cb = el.querySelector('input[type=checkbox]');
   if (cb) cb.checked = el.classList.contains('checked');
