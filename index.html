@@ -1092,11 +1092,13 @@ window.addEventListener('resize', function () {
 
 // ---- Form progress bar ----
 (function () {
+  var WEB3FORMS_KEY = 'YOUR_ACCESS_KEY_HERE'; // \u2190 replace with key from web3forms.com
+
   var form = document.getElementById('gk-form');
   if (!form) return;
   var bar = document.getElementById('prog-bar');
   var pct = document.getElementById('prog-pct');
-  var fields = Array.prototype.slice.call(form.querySelectorAll('input[required]'));
+  var fields = Array.prototype.slice.call(form.querySelectorAll('input[required], select[required]'));
 
   function update() {
     var filled = fields.filter(function (f) { return f.value.trim() !== ''; }).length;
@@ -1105,6 +1107,7 @@ window.addEventListener('resize', function () {
     pct.textContent = p + '%';
   }
   fields.forEach(function (f) { f.addEventListener('input', update); });
+  form.querySelector('select[required]') && form.querySelector('select[required]').addEventListener('change', update);
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1118,9 +1121,37 @@ window.addEventListener('resize', function () {
       });
       return;
     }
+
     var btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Application received \u2713';
-    btn.style.background = 'var(--green-600)';
+    btn.disabled = true;
+    btn.textContent = 'Sending\u2026';
+
+    var data = new FormData(form);
+    data.append('access_key', WEB3FORMS_KEY);
+    data.append('subject', 'New driver application \u2014 Green Key Rentals');
+    data.append('from_name', 'Green Key Rentals Website');
+
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res.success) {
+          btn.textContent = 'Application received \u2713';
+          btn.style.background = 'var(--green-600)';
+          form.reset();
+          bar.style.width = '0%';
+          pct.textContent = '0%';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Try again';
+          btn.style.background = '';
+          alert('Something went wrong. Please call us at (805) 202-6008.');
+        }
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Try again';
+        alert('Network error. Please call us at (805) 202-6008.');
+      });
   });
 
   fields.forEach(function (f) {
