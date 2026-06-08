@@ -439,6 +439,12 @@ p{margin:0;}
   .section{padding:64px 0;}
   .nav-links,.nav-phone,.nav-cta{display:none;}
   .nav-toggle{display:flex;}
+  /* On mobile, keep the logo visible when scrolled and group the
+     Free Guide pill with the hamburger on the right instead of
+     swapping out the brand entirely. */
+  .nav.nav-scrolled .brand{display:inline-flex;}
+  .nav.nav-scrolled .nav-right{margin-left:0;}
+  .nav.nav-scrolled .nav-guide-upsell{margin-left:auto;}
   .form-row{grid-template-columns:1fr;}
   .dstat{grid-template-columns:1fr;}
   .dstat .ds:first-child{border-right:0;border-bottom:1px solid var(--navy-500);}
