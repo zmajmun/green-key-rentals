@@ -100,11 +100,11 @@ p{margin:0;}
 .bm-sub{font-family:'Onest',sans-serif;font-weight:600;text-transform:uppercase;font-size:10px;letter-spacing:.34em;text-indent:.34em;margin-top:8px;color:#c3ccd6;}
 .brandmark.on-light .bm-word{color:var(--ink-900);}
 .brandmark.on-light .bm-sub{color:#7b8a9c;}
-.nav-links{display:flex;gap:26px;margin-left:14px;}
-.nav-links a{font-size:15px;font-weight:600;color:var(--dim-300);transition:color .15s;}
+.nav-links{display:flex;gap:26px;margin-left:14px;flex-shrink:0;}
+.nav-links a{font-size:15px;font-weight:600;color:var(--dim-300);transition:color .15s;white-space:nowrap;}
 .nav-links a:hover{color:#fff;}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;}
-.nav-phone{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--dim-300);border:1px solid var(--navy-500);padding:9px 15px;border-radius:999px;}
+.nav-phone{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--dim-300);border:1px solid var(--navy-500);padding:9px 15px;border-radius:999px;white-space:nowrap;flex-shrink:0;}
 .nav-phone b{color:#fff;font-weight:700;}
 .nav-toggle{
   display:none;width:44px;height:44px;flex:0 0 auto;
@@ -532,7 +532,7 @@ p{margin:0;}
     <div class="nav-right">
       <span class="nav-phone">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        Call us at: <b>(805) 202-6008</b>
+        <b>(805) 202-6008</b>
       </span>
       <a href="apply.html" class="btn btn-green nav-cta">Drive Now</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
