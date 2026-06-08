@@ -125,6 +125,16 @@ p{margin:0;}
 .mobile-menu a:last-child{border-bottom:0;}
 .mobile-menu a:active{color:var(--green-400);}
 
+/* ---- nav scroll state: logo swaps for a Free Guide upsell ---- */
+.nav-guide-upsell{display:none;align-items:center;gap:10px;background:rgba(22,193,114,.12);border:1px solid rgba(22,193,114,.3);border-radius:999px;padding:6px 16px 6px 6px;cursor:pointer;transition:background .2s ease,border-color .2s ease;}
+.nav-guide-upsell:hover{background:rgba(22,193,114,.2);border-color:rgba(22,193,114,.5);}
+.nav-guide-upsell .ngu-tag{background:var(--green-500);color:#06231a;font-family:var(--font-head);font-weight:800;font-size:10px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 11px;white-space:nowrap;flex-shrink:0;}
+.nav-guide-upsell .ngu-copy{font-family:var(--font-head);font-weight:600;font-size:13px;color:#dff6e9;white-space:nowrap;}
+.nav-guide-upsell .ngu-arrow{color:var(--green-400);font-size:15px;line-height:1;transition:transform .2s ease;flex-shrink:0;}
+.nav-guide-upsell:hover .ngu-arrow{transform:translateX(4px);}
+.nav.nav-scrolled .brand{display:none;}
+.nav.nav-scrolled .nav-guide-upsell{display:inline-flex;}
+
 /* ================= HERO ================= */
 .hero{position:relative;overflow:hidden;background:
   radial-gradient(900px 500px at 12% 18%, rgba(22,193,114,.16), transparent 60%),
@@ -420,9 +430,11 @@ p{margin:0;}
   .feat-grid,.veh-grid,.stat-grid,.steps-grid,.cov-cards,.strip-inner{grid-template-columns:1fr;}
   .dquote-grid{grid-template-columns:1fr;}
   .foot-grid{grid-template-columns:1fr;}
+  .nav-guide-upsell{padding:6px 12px 6px 6px;gap:8px;}
+  .nav-guide-upsell .ngu-copy{display:none;}
 }
 @media (max-width:760px){
-  html,body{overflow-x:hidden;}
+  html,body{overflow-x:clip;}
   .wrap{padding:0 20px;}
   .section{padding:64px 0;}
   .nav-links,.nav-phone,.nav-cta{display:none;}
@@ -505,6 +517,11 @@ p{margin:0;}
         <span class="bm-sub">RENTAL</span>
       </span>
     </a>
+    <button type="button" class="nav-guide-upsell" id="navGuideUpsell" onclick="openGuideModal()" aria-label="Free guide: how to make $1,000+ a week driving — open the signup form">
+      <span class="ngu-tag">Free Guide</span>
+      <span class="ngu-copy">Make $1,000+/week driving</span>
+      <span class="ngu-arrow">→</span>
+    </button>
     <div class="nav-links">
       <a href="#vehicles">Vehicles</a>
       <a href="#pricing">Pricing</a>
@@ -529,7 +546,6 @@ p{margin:0;}
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
       <a href="https://app.greenkeyrental.com/login">Login</a>
-      <a href="#top">Back to Home</a>
     </div>
   </div>
 </nav>
@@ -1254,6 +1270,18 @@ window.addEventListener('resize', function () {
   }, { passive: true });
 })();
 
+// ---- Nav: swap logo for the Free Guide upsell once the page scrolls ----
+(function () {
+  var nav = document.querySelector('.nav');
+  if (!nav) return;
+  var THRESHOLD = 10;
+  function update() {
+    nav.classList.toggle('nav-scrolled', window.scrollY > THRESHOLD);
+  }
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
+
 // ---- Mobile hamburger menu ----
 (function () {
   var nav = document.querySelector('.nav');
@@ -1279,8 +1307,8 @@ window.addEventListener('resize', function () {
     if (isOpen()) closeMenu(); else openMenu();
   });
 
-  // Close whenever a nav link is used (anchor jumps, brand, Login, Back to Home, etc.)
-  nav.querySelectorAll('a').forEach(function (a) {
+  // Close whenever a nav link or the Free Guide upsell is used (anchor jumps, brand, Login, etc.)
+  nav.querySelectorAll('a, .nav-guide-upsell').forEach(function (a) {
     a.addEventListener('click', closeMenu);
   });
 
