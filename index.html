@@ -106,7 +106,24 @@ p{margin:0;}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;}
 .nav-phone{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--dim-300);border:1px solid var(--navy-500);padding:9px 15px;border-radius:999px;}
 .nav-phone b{color:#fff;font-weight:700;}
-.nav-toggle{display:none;}
+.nav-toggle{
+  display:none;width:44px;height:44px;flex:0 0 auto;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  background:rgba(255,255,255,.05);border:1px solid var(--navy-500);border-radius:12px;
+  cursor:pointer;padding:0;
+}
+.nav-toggle span{display:block;width:20px;height:2px;border-radius:2px;background:#fff;transition:transform .25s ease,opacity .2s ease;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ---- mobile dropdown menu ---- */
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy-800);border-bottom:1px solid rgba(28,54,94,.5);box-shadow:0 24px 40px -20px rgba(0,0,0,.5);}
+.mobile-menu.open{display:block;}
+.mobile-menu-inner{display:flex;flex-direction:column;padding:8px 0 14px;}
+.mobile-menu a{padding:15px 4px;font-size:16px;font-weight:600;color:var(--dim-100);border-bottom:1px solid rgba(255,255,255,.07);}
+.mobile-menu a:last-child{border-bottom:0;}
+.mobile-menu a:active{color:var(--green-400);}
 
 /* ================= HERO ================= */
 .hero{position:relative;overflow:hidden;background:
@@ -389,6 +406,13 @@ p{margin:0;}
 .foot-col svg{width:15px;height:15px;color:var(--green-600);}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:22px;border-top:1px solid var(--light-300);font-size:13px;color:var(--ink-500);flex-wrap:wrap;gap:10px;}
 
+/* ================= LEGAL BAR ================= */
+.legal-bar{background:var(--navy-900);padding:30px 0;}
+.legal-bar .wrap{max-width:760px;text-align:center;}
+.legal-bar p{font-size:11px;line-height:1.7;color:rgba(255,255,255,.45);margin:0 0 10px;}
+.legal-bar p:last-child{margin-bottom:0;}
+.legal-bar p.legal-copyright{color:rgba(255,255,255,.75);font-weight:600;font-size:12px;}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr;gap:60px;}
@@ -401,8 +425,8 @@ p{margin:0;}
   html,body{overflow-x:hidden;}
   .wrap{padding:0 20px;}
   .section{padding:64px 0;}
-  .nav-links,.nav-phone{display:none;}
-  .nav-toggle{display:grid;}
+  .nav-links,.nav-phone,.nav-cta{display:none;}
+  .nav-toggle{display:flex;}
   .form-row{grid-template-columns:1fr;}
   .dstat{grid-template-columns:1fr;}
   .dstat .ds:first-child{border-right:0;border-bottom:1px solid var(--navy-500);}
@@ -492,7 +516,20 @@ p{margin:0;}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         Call us at: <b>(805) 202-6008</b>
       </span>
-      <a href="apply.html" class="btn btn-green">Drive Now</a>
+      <a href="apply.html" class="btn btn-green nav-cta">Drive Now</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap mobile-menu-inner">
+      <a href="#vehicles">Vehicles</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://app.greenkeyrental.com/login">Login</a>
+      <a href="#top">Back to Home</a>
     </div>
   </div>
 </nav>
@@ -1074,6 +1111,15 @@ p{margin:0;}
   </div>
 </footer>
 
+<!-- ============ LEGAL / COPYRIGHT BAR ============ -->
+<div class="legal-bar">
+  <div class="wrap">
+    <p class="legal-copyright">© 2026 Green Key Rental. All rights reserved.</p>
+    <p>Green Key Rental is an independently owned and operated rental company and is not affiliated with, endorsed by, or sponsored by Uber, Lyft, DoorDash, Amazon Flex, Instacart, Roadie, Gopuff, Postmates, or any other third-party platform named on this site. All trademarks, logos, and brand names referenced are the property of their respective owners and are used for identification purposes only.</p>
+    <p>Earnings figures, savings estimates, and testimonials shown are illustrative examples only — actual results vary by driver, market, hours, and platform, and are not guaranteed. All rentals are subject to driver qualification, application approval, identity and background verification, and a signed rental agreement. Rates, fees, vehicle availability, and promotional offers may change without notice.</p>
+  </div>
+</div>
+
 <script>
 // Green Key Rental — interactions
 
@@ -1206,6 +1252,54 @@ window.addEventListener('resize', function () {
       }
     }
   }, { passive: true });
+})();
+
+// ---- Mobile hamburger menu ----
+(function () {
+  var nav = document.querySelector('.nav');
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  if (!nav || !toggle || !menu) return;
+
+  function isOpen() { return menu.classList.contains('open'); }
+  function openMenu() {
+    toggle.classList.add('open');
+    menu.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+  }
+  function closeMenu() {
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+
+  toggle.addEventListener('click', function () {
+    if (isOpen()) closeMenu(); else openMenu();
+  });
+
+  // Close whenever a nav link is used (anchor jumps, brand, Login, Back to Home, etc.)
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function (e) {
+    if (!isOpen()) return;
+    if (menu.contains(e.target) || toggle.contains(e.target)) return;
+    closeMenu();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close if the viewport grows back to desktop size
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 760) closeMenu();
+  });
 })();
 
 /* ===== GUIDE MODAL ===== */
